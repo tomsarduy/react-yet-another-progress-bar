@@ -1,15 +1,13 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React from 'react';
+import { render } from 'react-dom';
 
-import Example from '../../src'
+import ProgressTracker from '../../src/index';
 
-class Demo extends Component {
-  render() {
-    return <div>
-      <h1>react-circular-progress Demo</h1>
-      <Example/>
-    </div>
-  }
-}
+const Demo = () => (
+  <div>
+    <h1>react-circular-progress Demo</h1>
+    <ProgressTracker progress={15} />
+  </div>
+);
 
-render(<Demo/>, document.querySelector('#demo'))
+render(<Demo />, document.querySelector('#demo'));
