@@ -33,7 +33,6 @@ export default ({
     color: textColor,
     fontFamily,
     fontSize: '42px',
-    fontWeight: '100',
     textAlign: 'center',
     position: 'absolute',
     top: '50%',
@@ -49,8 +48,21 @@ export default ({
   circleLt50: {
     clip: `rect(0, ${size}px, ${size}px, ${size / 2}px)`,
   },
+  pie: {
+    width: '100%',
+    height: '100%',
+    transitionProperty: 'transform',
+    transitionTimingFunction: 'linear',
+    ':before': {
+      content: "''",
+      display: 'block',
+      width: '50%',
+      height: '100%',
+      background: borderColor,
+    }
+  },
   pieRight: {
-    '&:before': {
+    ':before': {
       marginRight: `${size / 2}px`,
       borderTopLeftRadius: `${size / 2}px`,
       borderBottomLeftRadius: `${size / 2}px`,
@@ -60,7 +72,7 @@ export default ({
     clip: `rect(0, ${size / 2}px, ${size}px, 0)`,
   },
   pieLeft: {
-    '&:before': {
+    ':before': {
       marginLeft: `${size / 2}px`,
       borderTopRightRadius: `${size / 2}px`,
       borderBottomRightRadius: `${size / 2}px`,
