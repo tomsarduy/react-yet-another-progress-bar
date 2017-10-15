@@ -23,6 +23,36 @@ const propTypes = {
 };
 
 class ProgressTracker extends Component {
+  constructor(props) {
+    super(props);
+    this.interval = false;
+    this.state = {
+      currentProgress: Math.round(props.progress) || 0,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.animateNumber(nextProps.progress);
+  }
+
+  animateNumber(to) {
+    clearInterval(this.interval);
+    if (this.state.currentProgress === to || (to > 100 && to < 0)) {
+      return;
+    }
+    // Dynamic interval depending on the diff between the current and previous percent value
+    const intervalTime = Math.abs((Math.abs(to - this.state.currentProgress) - 100) / 2);
+    this.interval = setInterval(() => {
+      if (this.state.currentProgress === Math.round(to)) {
+        clearInterval(this.interval);
+      } else {
+        this.setState({
+          currentProgress: this.state.currentProgress += (this.state.currentProgress < to) ? 1 : -1,
+        });
+      }
+    }, intervalTime);
+  }
+
   render() {
     const custom = styles(this.props);
     return (
@@ -46,7 +76,7 @@ class ProgressTracker extends Component {
         </div>
         <div className={css(custom.innerContainer)}>
           <span className={css(custom.innerPercent)}>
-            {`${this.props.progress}%`}
+            {`${this.state.currentProgress}%`}
           </span>
         </div>
       </div>
