@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 import { css } from 'aphrodite';
 import styles from './index.styles';
 
+const MIN_PERCENTAGE = 0;
+const MAX_PERCENTAGE = 100;
+const MID_PERCENTAGE = 50;
+const SIZE = 150;
+
 const defaultProps = {
-  progress: 0,
-  size: 150,
+  progress: MIN_PERCENTAGE,
+  size: SIZE,
   borderWidth: 1,
   borderColor: 'gray',
   textColor: 'gray',
@@ -52,7 +57,7 @@ class ProgressTracker extends Component {
   animateCircle(from, to) {
     // if the values are invalid or the same
     // don't do anything
-    if (to > 100 || to < 0 || to === from) {
+    if (to > MAX_PERCENTAGE || to < MIN_PERCENTAGE || to === from) {
       return;
     }
 
@@ -73,7 +78,7 @@ class ProgressTracker extends Component {
     }
 
     // if the old and new values both > 50%
-    if (to > 50 && from > 50) {
+    if (to > MID_PERCENTAGE && from > MID_PERCENTAGE) {
       this.animateNumber(to, diff);
       this.pieLeft.style.transform = `rotate(${deg - 180}deg)`;
       this.pieLeft.style.transitionDuration = `${diff}s`;
@@ -83,20 +88,20 @@ class ProgressTracker extends Component {
 
     // If new value > 50% and old value < 50% we need to know
     // if the animation is forward or backward
-    const forward = !!(to > 50 && from <= 50);
+    const forward = !!(to > MID_PERCENTAGE && from <= MID_PERCENTAGE);
 
     // Object to animate the first half
     const firstHalf = {
       rotate: forward ? 180 : 360 * to / 100,
-      time: forward ? (50 - from) / 60 : (50 - to) / 60,
-      delay: forward ? 0 : Math.abs((50 - from) / 60),
+      time: forward ? (MID_PERCENTAGE - from) / 60 : (MID_PERCENTAGE - to) / 60,
+      delay: forward ? 0 : Math.abs((MID_PERCENTAGE - from) / 60),
     };
 
     // Object to animate second half
     const secondHalf = {
-      rotate: forward ? 360 * to / 100 - 180 : 0,
-      time: forward ? (to - 50) / 60 : (from - 50) / 60,
-      delay: forward ? (50 - from) / 60 : 0,
+      rotate: forward ? 360 * to / MAX_PERCENTAGE - 180 : 0,
+      time: forward ? (to - MID_PERCENTAGE) / 60 : (from - MID_PERCENTAGE) / 60,
+      delay: forward ? (MID_PERCENTAGE - from) / 60 : 0,
     };
     this.animateNumber(to, firstHalf.time + secondHalf.time);
 
