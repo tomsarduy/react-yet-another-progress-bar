@@ -1,4 +1,4 @@
-# React Circular Progress
+# Yey Another React Circular Progress
 
 Yes! Another circular progress for React, but only because I couldn't find all I wanted in the exisiting solutions.
 
@@ -12,6 +12,10 @@ Yes! Another circular progress for React, but only because I couldn't find all I
 * Really nice UX
 * Animation for the numbers
 * Very customizable (see examples)
+
+## Screenshot
+
+![React Circular Progress](/screenshot.png?raw=true 'Screenshot')
 
 ## Demos
 
