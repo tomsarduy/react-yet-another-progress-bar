@@ -25,30 +25,36 @@ class Demo extends Component {
           <ProgressTracker progress={this.state.progress} />
         </div>
         <div style={styles.progressContainer}>
-        <ProgressTracker 
-          progress={this.state.progress} 
-          borderColor='#2596b8'
-          textColor='#2596b8'
-          backgroundColor='#e9f0f3'
-        />
+          <ProgressTracker
+            progress={this.state.progress}
+            borderColor="#72b924"
+            textColor="#72b924"
+          />
         </div>
         <div style={styles.progressContainer}>
-        <ProgressTracker 
-          progress={70} 
-          borderColor='#3b1154'
-          textColor='white'
-          backgroundColor='#8027b7'
-          showPercent={true}
-        />
+          <ProgressTracker
+            progress={this.state.progress}
+            borderColor="#3b1154"
+            textColor="white"
+            backgroundColor="#8027b7"
+            showPercent={true}
+          />
         </div>
         <div style={styles.progressContainer}>
-        <ProgressTracker 
-          progress={90} 
-          borderColor='#3b1154'
-          textColor='#f5f5f5'
-          backgroundColor='#8027b7'
-          showNumber={false}
-        />
+          <ProgressTracker
+            progress={this.state.progress}
+            borderColor="#3b1154"
+            showNumber={false}
+          />
+        </div>
+        <div style={styles.progressContainer}>
+          <ProgressTracker
+            progress={this.state.progress}
+            borderColor="#3b1154"
+            textColor="#3b1154"
+            showNumber={true}
+            borderWidth={0}
+          />
         </div>
         <h2>Update progress value</h2>
         <DebounceInput

@@ -7,8 +7,8 @@ const defaultProps = {
   progress: 0,
   size: 150,
   borderWidth: 1,
-  borderColor: '#72b924',
-  textColor: '#72b924',
+  borderColor: 'gray',
+  textColor: 'gray',
   backgroundColor: 'white',
   fontFamily: 'sans-serif',
   showPercent: false,
@@ -50,8 +50,8 @@ class ProgressTracker extends Component {
 
   // CSS animation for the circle
   animateCircle(from, to) {
-    // If the values are invalid or the same
-    // don't do any animation
+    // if the values are invalid or the same
+    // don't do anything
     if (to > 100 || to < 0 || to === from) {
       return;
     }
@@ -132,7 +132,10 @@ class ProgressTracker extends Component {
   }
 
   render() {
+    // generate custom styles based on props
+    // colors, background, show/hide progress, etc
     const custom = styles(this.props);
+
     return (
       <div className={css(custom.wrapper)}>
         {/* the animation circle is made with 2 half circles */}
