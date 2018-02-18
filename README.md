@@ -22,14 +22,11 @@ Yes! Another circular progress for React, but only because I couldn't find all I
 https://tomsarduy.github.io/react-circular-progress/
 
 ## Install
-
-`npm install react-yet-another-progress-bar`
-
-`yarn install react-yet-another-progress-bar`
+Work in progress
 
 ## Installing without npm or yarn
 
-If you think you want to make some changes or want to add the component as part of your repository, you just need to copy/paste `src/index.js` and `src/index.styles.js` into your project if you are already using Aphrodite.
+If you want to customize the component or simply add it as part of your repository, just copy/paste `src/index.js` and `src/index.styles.js` into your project if you are already using Aphrodite.
 
 ## Usage
 
