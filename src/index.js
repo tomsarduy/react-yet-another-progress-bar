@@ -13,9 +13,9 @@ const defaultProps = {
   size: SIZE,
   borderWidth: 1,
   borderColor: 'gray',
+  textStyles: {},
   textColor: 'gray',
   backgroundColor: 'white',
-  fontFamily: 'sans-serif',
   showPercent: false,
   showNumber: true,
 };
@@ -26,7 +26,7 @@ const propTypes = {
   borderColor: PropTypes.string,
   textColor: PropTypes.string,
   backgroundColor: PropTypes.string,
-  fontFamily: PropTypes.string,
+  textStyles: PropTypes.object,
   showPercent: PropTypes.bool,
 };
 
@@ -57,7 +57,13 @@ class ProgressTracker extends Component {
   animateCircle(from, to) {
     // if the values are invalid or the same
     // don't do anything
-    if (to > MAX_PERCENTAGE || to < MIN_PERCENTAGE || to === from) {
+    if (
+      Number.isNaN(parseInt(from)) ||
+      Number.isNaN(parseInt(to)) ||
+      to > MAX_PERCENTAGE ||
+      to < MIN_PERCENTAGE ||
+      to === from
+    ) {
       return;
     }
 
