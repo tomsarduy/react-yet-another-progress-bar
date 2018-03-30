@@ -1,4 +1,4 @@
-# Yey Another React Circular Progress
+# Yet Another React Circular Progress
 
 Yes! Another circular progress for React, but only because I couldn't find all I wanted in the exisiting solutions.
 
