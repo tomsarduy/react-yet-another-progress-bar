@@ -1,5 +1,5 @@
 {
-  "name": "react-circular-progress",
+  "name": "yet-another-react-circular-progress",
   "version": "0.0.1",
   "description":
     "Customizable circular progress bar component using React and Aphrodite",
@@ -30,9 +30,16 @@
     "react-debounce-input": "^3.1.0",
     "react-dom": "^16.2.0"
   },
-  "author": "",
-  "homepage": "",
+  "author": "Tom Sarduy",
+  "homepage": "https://github.com/tomsarduy/react-yet-another-progress-bar",
   "license": "MIT",
-  "repository": "",
-  "keywords": ["react-component"]
+  "repository": "https://github.com/tomsarduy/react-yet-another-progress-bar",
+  "keywords": [
+    "react-component",
+    "aphrodite",
+    "react loader",
+    "progress bar",
+    "react circular progress bar",
+    "percent loader"
+  ]
 }
